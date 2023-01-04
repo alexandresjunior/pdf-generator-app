@@ -16,3 +16,7 @@ Em aplicações empresariais é muito comum a necessidade de criar documentos em
 * Na propriedade `footer` é declarada uma função que recebe a página atual e a quantidade de páginas. A função do `footer` retorna uma tabela em que a primeira linha contém um `text` com vários `_` para criar uma linha bem sutil, e na segunda linha foram utilizados os parâmetros recebidos pela função para exibir um contador de páginas.
 
 ## Resultado Final
+
+<div align="center">
+  <img width="940" alt="image" src="https://user-images.githubusercontent.com/83607914/210589552-fe582d20-ac79-4f05-b967-dec63f4762f5.png">
+</div>
