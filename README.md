@@ -1,70 +1,18 @@
-# Getting Started with Create React App
+# PDF Generator App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Apresentação
 
-## Available Scripts
+Em aplicações empresariais é muito comum a necessidade de criar documentos em PDF, seja para exibir dados de um relatório ou mesmo para exportar informações exibidas em tela. Nesta aplicação de exemplo, documentos PDF são criados utilizando as bibliotecas [React](https://reactjs.org/) e [PdfMake](http://pdfmake.org/#/), através de uma tela inicial simples, apenas com um botão para gerar o relatório.
 
-In the project directory, you can run:
+## Detalhes da Implementação
 
-### `npm start`
+* Como fontes de dados, utilizou-se um arquivo `data.js` com dados mockados.
+* O PdfMake utiliza a sintaxe de *object literals* para construir o layout dos documentos, e sua estrutura é dividida em 4 partes, sendo elas `header`, `content`, `footer` e `styles`. 
+* Além disso possui um conjunto de elementos como **tabelas**, **parágrafos** e **listas**, sendo que é possível estilizá-los passando as propriedades `inline` ou definindo-as dentro da propriedade `styles`.
+* O arquivo `LayoutPDF.js` é o responsável pela geração do documento.
+* A função `criaCorpoDocumento` é responsável por iterar pelos dados do arquivo `data.js` e por devolver o conteúdo da seção `content` do documento.
+* Na primeira linha da função `gerarDocumento` é definido o tamanho da página na propriedade `pageSaze`. Em seguida são definidas as configurações de **margem** do documento. A propriedade `pageMargins` é muito importante, pois é ela que determina o tamanho disponível para o `header` e o `footer`, já que a altura do `header` vai de 0 até a quantidade de margem do topo e com o `footer` é a mesma coisa.
+* A propriedade `content` contém uma tabela e seu conteúdo são os dados gerados pela função `criaCorpoDocumento`. 
+* Na propriedade `footer` é declarada uma função que recebe a página atual e a quantidade de páginas. A função do `footer` retorna uma tabela em que a primeira linha contém um `text` com vários `_` para criar uma linha bem sutil, e na segunda linha foram utilizados os parâmetros recebidos pela função para exibir um contador de páginas.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Resultado Final
