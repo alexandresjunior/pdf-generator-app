@@ -4,7 +4,7 @@ import logo from "./assets/img/treina_recife_logo.png";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import { data } from "./mocks/data.js";
-import { LayoutPDF } from "./components/LayoutPDF";
+import { CertificadoLayoutPDF } from "./components/CertificadoLayoutPDF";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -24,7 +24,7 @@ const App = () => {
 }
 
 const visualizarImpressao = (data) => {
-  const documento = LayoutPDF(data)
+  const documento = CertificadoLayoutPDF("gabriela cavalcanti de souza", "lógica de programação com python", "36")
 
   pdfMake.createPdf(documento).open({}, window.open('', '_blank'))
 }
