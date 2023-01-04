@@ -3,8 +3,9 @@ import logo from "./assets/img/treina_recife_logo.png";
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import { data } from "./mocks/data.js";
+import { data, alunos } from "./mocks/data.js";
 import { CertificadoLayoutPDF } from "./components/CertificadoLayoutPDF";
+import { AtaTurmaLayoutPDF } from "./components/AtaTurmaLayoutPDF";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -17,14 +18,15 @@ const App = () => {
       </header>
 
       <section className="App-body">
-        <button className="btn" onClick={() => visualizarImpressao(data)}>Visualizar Documento</button>
+        <button className="btn" onClick={() => visualizarImpressao(alunos)}>Visualizar Documento</button>
       </section>
     </div>
   );
 }
 
 const visualizarImpressao = (data) => {
-  const documento = CertificadoLayoutPDF("gabriela cavalcanti de souza", "lógica de programação com python", "36")
+  // const documento = CertificadoLayoutPDF("gabriela cavalcanti de souza", "lógica de programação com python", "36")
+  const documento = AtaTurmaLayoutPDF(data);
 
   pdfMake.createPdf(documento).open({}, window.open('', '_blank'))
 }

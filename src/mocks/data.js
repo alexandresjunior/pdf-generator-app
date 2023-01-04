@@ -20,3 +20,26 @@ export const data = [
         qtdVendido: 32,
     }
 ];
+
+export const alunos = [
+    {
+        id: 1,
+        matricula: "ABC123",
+        nome: "Alexandre de Souza Jr.",
+    },
+    {
+        id: 2,
+        matricula: "ABC456",
+        nome: "Rogério Aguiar",
+    },
+    {
+        id: 3,
+        matricula: "ABC789",
+        nome: "Edilene Valgueiro",
+    },
+    {
+        id: 4,
+        matricula: "DEF123",
+        nome: "Rebeca Valgueiro",
+    },
+];
